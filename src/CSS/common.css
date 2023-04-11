@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'SEBANG_Gothic_Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    margin : 0;
+    box-sizing: border-box;
+    font-family: 'SEBANG_Gothic_Bold';
+}
+.con{
+    background-color: #fff;
+    width: 960px;
+    text-align: center;
+    margin: auto;
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+}
+h1{
+    text-align: left;
+    margin-bottom: 10px;
+}
+.title{
+    text-align: center;
+    padding: 5px;
+}
+
+.con1{
+    /* width : 50%; */
+    max-width: 960px;
+    margin : auto;
+    padding: 30px 0;
+    text-align: center;
+    /* background-color: #fff; */
+}
+.find_btn{
+    text-align: center;
+    margin: 10px auto;
+    max-width: 960px;
+    /* background-color: #fff; */
+    /* padding: 30px; */
+
+}
+.search{
+    border: 1px solid black;
+    line-height: 20px;
+}
+.search_btn{
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #ffd64e;
+    color: #00a500;
+}
+
+.btn{
+    display :inline-block;
+    background-color: #8b34c5;
+    border: 2px solid #000;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+}
+.btn:hover{
+    /* border: none; */
+    transition: .2s;
+    border: 2px solid #000;
+    color: #8b34c5;
+    background-color:  #fff;
+}
+table{
+    background-color: #ffffff;
+    width: 800px;
+    /* box-shadow: 0px 0px 5px 3px #eee; */
+}
+.table_head{
+    background-color: #ffbaba;
+    color: #2861b8;
+    font-size: 20px;
+}
+td,th{
+    padding: 10px;
+}
+th{
+    border: 2px solid black;
+    
+}
+#td{
+    border: 2px solid black;
+
+}
+.th_1{
+    width: 150px;
+}
+.th_3{
+    width: 300px;
+}
+body{
+    background-image: url("../img/pattern.png");
+    height: 100vh;
+    position: relative;
+}
+.td{
+    background-color: #ffd000;
+}
+footer{
+    height: 70px;
+    width: 100%;
+    background-color: #fcfcfc;
+    position : fixed;
+    bottom: 0;
+    text-align: center;
+    line-height: 70px;
+    font-size: 12px;
+    color: #5a5a5a;
+}
+.title{
+    color: #000;
+    text-decoration:none;
+}
+.inp{
+    width: 500px;
+    margin: 5px;
+    border: 1px solid black;
+}
+#contents{
+    height: 300px;
+}
