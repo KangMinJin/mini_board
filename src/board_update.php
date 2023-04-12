@@ -29,7 +29,10 @@
         $result_cnt = update_board_info_no( $arr_info );
 
         // select
-        $result_info = select_board_info_no( $arr_post["board_no"] );
+        // $result_info = select_board_info_no( $arr_post["board_no"] ); // 0412 del
+
+        header( "Location: board_detail.php?board_no=".$arr_post["board_no"] );
+        exit(); // 위에서 header 함수를 써서 redirect 했기 때문에 이후의 소스코드는 실행할 필요가 없다. (exit 이후의 코드는 실행이 되지 않는다)
     }
 
 ?>
@@ -58,8 +61,11 @@
             <input type="text" name="board_contents" id="contents" class="inp" value="<?php echo $result_info["board_contents"] ?>">
             <br>
             <button type="submit" class="btn">수정</button>
-            <button type="button" onclick="location.href='board_list.php'" class="btn">글목록</button>
+            <button type="submit" onclick="location.href='board_datail.php?board_no='.<?php echo $result_info['board_no']?>" class="btn">
+            취소
+            </button>
         </form>
+        <button type="button" onclick="location.href='board_list.php'" class="btn">글목록</button>
     </div>
     <footer>
     <p>Copyright © 2023 MY BOARD.co.Ltd. All rights reserved.</p>

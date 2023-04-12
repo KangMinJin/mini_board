@@ -106,6 +106,7 @@
             ."  board_no "
             ."  ,board_title "
             ."  ,board_contents "
+            ."  ,board_write_date " // 0412 작성일 추가
             ." FROM "
             ."  board_info "
             ." WHERE "
@@ -174,6 +175,46 @@
         finally
         {
             $obj_conn = null; // 연결을 하면 항상 끊어줘야한다!
+        }
+
+        return $result_cnt;
+    }
+
+    function delete_board_info_no( &$param_no )
+    {
+        $sql =
+            " UPDATE "
+            ."  board_info "
+            ." SET "
+            ."  board_del_flg = '1' " // type이 CHAR이므로 '1' 이렇게 홑따옴표로 감싼다!
+            ."  ,board_del_date = NOW() "
+            ." WHERE "
+            ."  board_no = :board_no "
+            ;
+        
+        $arr_prepare =
+            array(
+                ":board_no" => $param_no
+            );
+        
+        $obj_conn = null;
+        try 
+        {
+            db_conn( $obj_conn );
+            $obj_conn->beginTransaction();
+            $stmt = $obj_conn->prepare( $sql );
+            $stmt->execute( $arr_prepare );
+            $result_cnt = $stmt->rowCount();
+            $obj_conn->commit();
+        }
+        catch( Exception $e)
+        {
+            $obj_conn->rollback();
+            return $e->getMessage();
+        }
+        finally
+        {
+            $obj_conn = null;
         }
 
         return $result_cnt;

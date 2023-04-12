@@ -72,9 +72,9 @@
                         { // php와 html을 분리해서 작성한다
                     ?>
                         <tr>
-                            <td id="td"><?php echo $recode["board_no"] ?></td>
-                            <td id="td"><a class ="title" href="board_update.php?board_no=<?php echo $recode["board_no"]?>"><?php echo $recode["board_title"] ?></a></td>
-                            <td id="td"><?php echo $recode["board_write_date"] ?></td>
+                            <td><?php echo $recode["board_no"] ?></td>
+                            <td><a class ="title" href="board_detail.php?board_no=<?php echo $recode["board_no"]?>"><?php echo $recode["board_title"] ?></a></td>
+                            <td><?php echo $recode["board_write_date"] ?></td>
                         </tr>
                     <?php
                         }
