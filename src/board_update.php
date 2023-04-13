@@ -1,6 +1,9 @@
 <?php
-    define( "DOC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/" );
-    define( "URL_DB", DOC_ROOT."common/db_common.php" );
+    define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/" );
+    define( "URL_DB", SRC_ROOT."common/db_common.php" );
+    define( "URL_HEADER", SRC_ROOT."board_header.php");
+    define( "URL_FOOTER", SRC_ROOT."board_footer.php");
+
     include_once( URL_DB );
 
     // Request Method를 획득
@@ -47,28 +50,53 @@
     
 </head>
 <body>
-    <div class="title"><a href="board_list.php"><img src="./img/title1.png" alt="타이틀"></a></div>
+    <?php include_once( URL_HEADER )?>
     <div class="con">
-        <h1>수정</h1>
-        <form method="post" action="board_update.php">
-            <label for="bno">게시글 번호 : </label>
-            <input type="text" name="board_no" id="bno" class="inp"value="<?php echo $result_info["board_no"] ?>" readonly>
+        <table class="detail_t">
+            <thead class="table_head">
+                <th class="detail_h">수정</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                    <form method="post" action="board_update.php">
+                        <br>
+                        <label for="title" class="f_l">제목</label>
+                        <input type="text" name="board_title" id="title" class="inp" value="<?php echo $result_info["board_title"] ?>" required>
+                        <br>
+                        <div class="lb_al">
+                            <label for="contents" class="f_l">내용</label>
+                            <textarea name="board_contents" id="contents" cols="30" rows="10" required ><?php echo $result_info["board_contents"] ?></textarea>
+                        </div>
+                        <input type="hidden" name="board_no" value="<?php echo $result_info["board_no"]?>">
+                        <br>
+                        <button type="submit" class="btn">수정</button>
+                        <button type="submit" onclick="location.href='board_datail.php?board_no='.<?php echo $result_info['board_no']?>" class="btn">
+                        취소
+                        </button>
+                    </form>
+                    <button type="button" onclick="location.href='board_list.php'" class="btn">글목록</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <h1>수정</h1> -->
+        <!-- <form method="post" action="board_update.php">
+            
             <br>
-            <label for="title">게시글 제목 : </label>
-            <input type="text" name="board_title" id="title" class="inp" value="<?php echo $result_info["board_title"] ?>">
+            <label for="title">제목 : </label>
+            <input type="text" name="board_title" id="title" class="inp" value="<?php //echo $result_info["board_title"] ?>" required>
             <br>
-            <label for="contents">게시글 내용 : </label>
-            <input type="text" name="board_contents" id="contents" class="inp" value="<?php echo $result_info["board_contents"] ?>">
+            <label for="contents">내용 : </label>
+            <textarea name="board_contents" id="contents" cols="30" rows="10" required ><?php //echo $result_info["board_contents"] ?></textarea>
             <br>
             <button type="submit" class="btn">수정</button>
-            <button type="submit" onclick="location.href='board_datail.php?board_no='.<?php echo $result_info['board_no']?>" class="btn">
+            <button type="submit" onclick="location.href='board_datail.php?board_no='.<?php // echo $result_info['board_no']?>" class="btn">
             취소
             </button>
         </form>
-        <button type="button" onclick="location.href='board_list.php'" class="btn">글목록</button>
+        <button type="button" onclick="location.href='board_list.php'" class="btn">글목록</button> -->
     </div>
-    <footer>
-    <p>Copyright © 2023 MY BOARD.co.Ltd. All rights reserved.</p>
-    </footer>
+    <?php include_once( URL_FOOTER )?>
 </body>
 </html>

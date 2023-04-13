@@ -220,6 +220,54 @@
         return $result_cnt;
     }
 
+    function insert_board_info( &$param_arr )
+    {
+        $sql =
+        " INSERT INTO board_info( "
+        ."  board_title "
+        ."  ,board_contents "
+        ."  ,board_write_date "
+        ."  ) "
+        ." VALUES( "
+        ."  :board_title "
+        ."  ,:board_contents "
+        ."  ,NOW() "
+        ."  ) "
+        ;
+
+        $arr_prepare =
+            array(
+                ":board_title"      => $param_arr["board_title"]
+                ,":board_contents"  => $param_arr["board_contents"]
+            );
+        
+        $obj_conn = null;
+        try
+        {
+            db_conn( $obj_conn ); // PDO object set (DB연결)
+            $obj_conn->beginTransaction(); // Transaction 시작
+            $stmt = $obj_conn->prepare( $sql ); // statement object 셋팅
+            $stmt->execute( $arr_prepare ); // DB request
+            $result_cnt = $stmt->rowCount(); // rowCount() 는 update로 영향을 받은 레코드의 수를 알려주는 함수
+            $obj_conn->commit();
+        }
+        catch( Exception $e )
+        {
+            $obj_conn->rollback(); // return이 오면 작동이 끝나므로 return 앞에 rollback을 쓴다
+            return $e->getMessage(); // 에러가 나면 catch다음 finally 실행되고 끝 - 맨 밑의 return $result를 하지 않는다
+        }
+        finally
+        {
+            $obj_conn = null; // 연결을 하면 항상 끊어줘야한다!
+        }
+
+        return $result_cnt;
+    }
+    // TODO
+    // $arr = array("board_title" => "test", "board_contents" => "contents");
+    // echo insert_board_info( $arr );
+    // TODO
+
     
     // TODO : test Start
     // $arr =

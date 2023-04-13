@@ -1,6 +1,9 @@
 <?php
-    define( "DOC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/" );
-    define( "URL_DB", DOC_ROOT."common/db_common.php" );
+    define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/" );
+    define( "URL_DB", SRC_ROOT."common/db_common.php" );
+    define( "URL_HEADER", SRC_ROOT."board_header.php");
+    define( "URL_FOOTER", SRC_ROOT."board_footer.php");
+
     include_once( URL_DB );
 
     // Request Parameter 획득(GET)
@@ -19,7 +22,7 @@
     <link rel="stylesheet" href="./CSS/common.css">
 </head>
 <body>
-    <div class="title"><a href="board_list.php"><img src="./img/title1.png" alt="타이틀"></a></div>
+    <?php include_once( URL_HEADER )?>
     <!-- <div class="con">
         <p>게시글 번호 : <?php echo $result_info["board_no"]?></p>
         <p>게시글 제목 : <?php echo $result_info["board_title"]?></p>
@@ -52,8 +55,6 @@
             <button type="button" onclick="location.href='board_delete.php?board_no=<?php echo $result_info['board_no']?>'" class="btn">삭제</button>
             <button type="button" onclick="location.href='board_list.php'" class="btn">글목록</button>
     </div>
-    <footer>
-    <p>Copyright © 2023 MY BOARD.co.Ltd. All rights reserved.</p>
-    </footer>
+    <?php include_once( URL_FOOTER )?>
 </body>
 </html>

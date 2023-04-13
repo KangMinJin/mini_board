@@ -20,12 +20,13 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 50px 80px;
+    word-break:break-all;
 }
 h1{
     text-align: left;
     margin-bottom: 10px;
 }
-.title{
+.header{
     text-align: center;
     margin: auto;
     /* padding: 5px; */
@@ -41,13 +42,13 @@ h1{
 }
 .find_btn{
     text-align: center;
-    margin: 10px auto;
+    margin-top: 30px ;
     max-width: 960px;
     /* background-color: #fff; */
     /* padding: 30px; */
 
 }
-.search{
+/* .search{
     border: 1px solid black;
     line-height: 20px;
 }
@@ -56,14 +57,14 @@ h1{
     border: 2px solid black;
     border-radius: 5px;
     background-color: #ffd64e;
-    color: #00a500;
-}
+    color: #000;
+} */
 a{
     text-decoration: none;
 }
 .btn{
     display :inline-block;
-    background-color: #8b34c5;
+    background-color: #a273c2;
     border: 2px solid #000;
     border-radius: 5px;
     margin: 5px;
@@ -74,26 +75,26 @@ a{
     /* border: none; */
     transition: .2s;
     border: 2px solid #000;
-    color: #8b34c5;
+    color: #a273c2;
     background-color:  #fff;
+    cursor: pointer;
 }
 table{
     background-color: #ffffff;
     width: 800px;
     border-collapse: collapse;
+    word-break:break-all;
     /* box-shadow: 0px 0px 5px 3px #eee; */
 }
 .table_head{
-    background-color: #ffbaba;
+    background-color: #fdd1e6;
     color: #2861b8;
     font-size: 20px;
 }
-td,th{
+td,th,td{
     padding: 10px;
-}
-th,td{
     border: 2px solid black;
-    
+    word-break:break-all;
 }
 
 .th_1{
@@ -104,11 +105,11 @@ th,td{
 }
 body{
     background-image: url("../img/pattern.png");
-    height: 100vh;
+    height: 100%;
     /* position: relative; */
 }
 
-footer{
+.footer{
     height: 70px;
     width: 100%;
     background-color: #fcfcfc;
@@ -126,10 +127,12 @@ footer{
 .title:hover{
     color: #8b34c5;
 }
-.inp{
-    width: 500px;
-    margin: 5px;
-    border: 1px solid black;
+.inp, textarea{
+    width: 80%;
+    margin-bottom: 10px;
+    background-color: #d3daff;
+    border: none;
+    resize: none;
 }
 .detail_t{
     margin-bottom: 10px;
@@ -144,4 +147,20 @@ footer{
 .detail_contents{
     height: 300px;
     text-align: start;
+    background: #fff url("../img/folder.png") no-repeat right 3% bottom 10% / 20%;
+}
+label{
+    display: inline-block;
+    text-align: center;
+    margin-right: 10px;
+}
+.lb_al *{
+    
+    vertical-align:middle;
+}
+#insert_btn{
+    float: right;
+}
+p{
+    white-space: pre-wrap;
 }

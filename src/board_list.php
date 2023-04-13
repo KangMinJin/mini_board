@@ -1,6 +1,8 @@
 <?php
-    define( "DOC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/" );
-    define( "URL_DB", DOC_ROOT."common/db_common.php" );
+    define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/" );
+    define( "URL_DB", SRC_ROOT."common/db_common.php" );
+    define( "URL_HEADER", SRC_ROOT."board_header.php");
+    define( "URL_FOOTER", SRC_ROOT."board_footer.php");
     include_once( URL_DB );
 
     $http_method = $_SERVER["REQUEST_METHOD"];
@@ -57,9 +59,9 @@
     <link rel="stylesheet" href="./CSS/common.css">
 </head>
 <body>
-    <div class="title"><a href="board_list.php"><img src="./img/title1.png" alt="타이틀"></a></div>
+    <?php include_once( URL_HEADER )?>
     <div class="con">
-        <div class="con1">
+            <button type="button" class="btn" id="insert_btn" onclick="location.href='board_insert.php'">게시글 작성</button>
             <table >
                 <thead class="table_head">
                     <th class="th_1">게 시 글  번 호</th>
@@ -82,15 +84,16 @@
                 </tbody>
             </table>
             <!-- <button type="submit"></button> -->
-        </div>
         
         
-        <div class = "find_search">
+        
+        <!-- <div class = "find_search">
             <input type="text" class="search">
             <button type="submit" class="search_btn">검색</button>
             <br>
-        </div>
+        </div> -->
         <div class="find_btn">
+            <a href="board_list.php" class="btn"><<</a>
                 <?php
                 $previous_page = $page_num-1;
                 if( $page_num > 1 )
@@ -123,10 +126,9 @@
                 <a href="board_list.php?page_num=<?php echo $page_num?>" class="btn">></a>
                 <?php
                 }?>
+                <a href="board_list.php?page_num=<?php echo $max_page_num?>" class="btn">>></a>
             </div>
     </div>
-    <footer>
-    <p>Copyright © 2023 MY BOARD.co.Ltd. All rights reserved.</p>
-    </footer>
+    <?php include_once( URL_FOOTER )?>
 </body>
 </html>
