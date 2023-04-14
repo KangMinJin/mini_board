@@ -18,26 +18,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail</title>
+    <title>MY BOARD</title>
     <link rel="stylesheet" href="./CSS/common.css">
 </head>
 <body>
     <?php include_once( URL_HEADER )?>
-    <!-- <div class="con">
-        <p>게시글 번호 : <?php echo $result_info["board_no"]?></p>
-        <p>게시글 제목 : <?php echo $result_info["board_title"]?></p>
-        <p>작성일 : <?php echo $result_info["board_write_date"]?></p>
-        <p>게시글 내용 : <?php echo $result_info["board_contents"]?></p>
-        <button type="button" class="btn">
-            <a href="board_update.php?board_no=<?php echo $result_info["board_no"]?>">수정</a>
-        </button>
-        <button type="button" class="btn">
-            <a href="board_delete.php?board_no=<?php echo $result_info["board_no"]?>">삭제</a></button>
-    </div> -->
     <div class="con">
         <table class="detail_t">
             <thead class="table_head">
-                <th class="detail_h">    
+                <th class="wd_h">    
 
                     <p><?php echo $result_info["board_no"].". ".$result_info["board_title"]?></p>
                     <p class="board_date"><?php echo $result_info["board_write_date"]?></p>

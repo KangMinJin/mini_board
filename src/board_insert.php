@@ -30,18 +30,19 @@
     <div class="con">
         <table>
             <thead class="table_head">
-                <th class="detail_h">글 작성</th>
+                <th class="wd_h">글 작성</th>
             </thead>
             <tbody>
                 <tr>
                 <td>
+                    <br>
                     <form method="post" action="board_insert.php">
                     <label for="title">제목</label>
                     <input type="text" name="board_title" id="title" class="inp" required>
                     <br>
                     <div class="lb_al">
                         <label for="contents">내용</label>
-                        <textarea name="board_contents" id="contents" cols="30" rows="10" required></textarea>
+                        <textarea name="board_contents" id="contents" rows="10" required></textarea>
                     </div>
                     <br>
                     <button type="submit" class="btn">작성</button>

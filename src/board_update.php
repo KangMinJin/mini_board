@@ -45,16 +45,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게시판</title>
+    <title>게시글 수정</title>
     <link rel="stylesheet" href="./CSS/common.css">
     
 </head>
 <body>
     <?php include_once( URL_HEADER )?>
     <div class="con">
-        <table class="detail_t">
+        <table>
             <thead class="table_head">
-                <th class="detail_h">수정</th>
+                <th class="wd_h">수정</th>
             </thead>
             <tbody>
                 <tr>
@@ -66,7 +66,7 @@
                         <br>
                         <div class="lb_al">
                             <label for="contents" class="f_l">내용</label>
-                            <textarea name="board_contents" id="contents" cols="30" rows="10" required ><?php echo $result_info["board_contents"] ?></textarea>
+                            <textarea name="board_contents" id="contents" rows="10" required ><?php echo $result_info["board_contents"] ?></textarea>
                         </div>
                         <input type="hidden" name="board_no" value="<?php echo $result_info["board_no"]?>">
                         <br>
@@ -74,28 +74,12 @@
                         <button type="submit" onclick="location.href='board_datail.php?board_no='.<?php echo $result_info['board_no']?>" class="btn">
                         취소
                         </button>
+                        <button type="button" onclick="location.href='board_list.php'" class="btn">글목록</button>
                     </form>
-                    <button type="button" onclick="location.href='board_list.php'" class="btn">글목록</button>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <!-- <h1>수정</h1> -->
-        <!-- <form method="post" action="board_update.php">
-            
-            <br>
-            <label for="title">제목 : </label>
-            <input type="text" name="board_title" id="title" class="inp" value="<?php //echo $result_info["board_title"] ?>" required>
-            <br>
-            <label for="contents">내용 : </label>
-            <textarea name="board_contents" id="contents" cols="30" rows="10" required ><?php //echo $result_info["board_contents"] ?></textarea>
-            <br>
-            <button type="submit" class="btn">수정</button>
-            <button type="submit" onclick="location.href='board_datail.php?board_no='.<?php // echo $result_info['board_no']?>" class="btn">
-            취소
-            </button>
-        </form>
-        <button type="button" onclick="location.href='board_list.php'" class="btn">글목록</button> -->
     </div>
     <?php include_once( URL_FOOTER )?>
 </body>
