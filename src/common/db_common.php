@@ -278,8 +278,8 @@
         // $result = select_board_info_paging( $arr );
         
         // print_r ( $result );
-        // $i = 20;
-        // print_r(select_board_info_no( $i ));
+        $i = 20;
+        print_r(select_board_info_no( $i ));
         // $arr =
         //     array(
         //         "board_no"  => 1
